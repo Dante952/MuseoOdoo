@@ -1,0 +1,52 @@
+<odoo>
+    <record id="action_art_piece" model="ir.actions.act_window">
+        <field name="name">Art Pieces</field>
+        <field name="res_model">art.piece</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_art_gallery_root" name="Art Gallery" sequence="10"/>
+    <menuitem id="menu_art_piece" name="Art Pieces" parent="menu_art_gallery_root" action="action_art_piece"/>
+
+    <record id="view_art_piece_form" model="ir.ui.view">
+        <field name="name">art.piece.form</field>
+        <field name="model">art.piece</field>
+        <field name="arch" type="xml">
+            <form string="Art Piece">
+                <group>
+                    <field name="title"/>
+                    <field name="description"/>
+                    <field name="author"/>
+                    <field name="price"/>
+                    <field name="image" widget="image" class="oe_avatar"/>  <!-- Campo de imagen -->
+                    <field name="audio_url"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_art_piece_tree" model="ir.ui.view">
+        <field name="name">art.piece.tree</field>
+        <field name="model">art.piece</field>
+        <field name="arch" type="xml">
+            <tree string="Art Piece">
+                <field name="title"/>
+                <field name="author"/>
+                <field name="price"/>
+                <field name="image" widget="image" class="oe_avatar"/>  <!-- Campo de imagen -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_art_piece_search" model="ir.ui.view">
+        <field name="name">art.piece.search</field>
+        <field name="model">art.piece</field>
+        <field name="arch" type="xml">
+            <search string="Art Piece">
+                <field name="title"/>
+                <field name="author"/>
+                <field name="price"/>
+            </search>
+        </field>
+    </record>
+</odoo>
